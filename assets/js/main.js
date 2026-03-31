@@ -1,3 +1,5 @@
+import { SITE_CONFIG } from "./config.js";
+
 let currentSlide = 0;
 const slides = document.querySelectorAll(".slide");
 
@@ -21,3 +23,8 @@ document.querySelector(".prev").onclick = prevSlide;
 
 // Auto scroll
 setInterval(nextSlide, 4000);
+
+document.querySelectorAll("[data-link]").forEach((el) => {
+  const key = el.dataset.link;
+  el.href = SITE_CONFIG.links[key];
+});
