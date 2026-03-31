@@ -215,7 +215,6 @@ body {
   color: var(--millersville-black);
   text-align: center;
   padding: 30px 20px 20px;
-  margin-top: 40px;
   box-shadow: 0 -6px 16px rgba(0, 0, 0, 0.25);
 }
 
@@ -433,4 +432,105 @@ body {
   justify-content: center;
   gap: 10px;
   flex-wrap: wrap;
+}
+
+/* =========================
+   SLIDESHOW
+   ========================= */
+
+/* Outer slideshow section */
+.slideshow-section {
+  padding: 60px 20px;
+}
+
+/* Section title */
+.slideshow-title {
+  margin: 0 0 20px;
+  text-align: center;
+  color: var(--millersville-gold);
+}
+
+/* Main slideshow frame */
+.slideshow {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  height: clamp(320px, 50vw, 500px);
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: var(--millersville-black);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  padding: 30px 20px;
+}
+
+/* Slides wrapper */
+.slides {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Individual slide */
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Active slide */
+.slide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Slide image */
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Navigation arrows */
+.slide-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(35, 31, 32, 0.8);
+  color: var(--millersville-white);
+  border: none;
+  padding: 12px 14px;
+  cursor: pointer;
+  font-size: 1.4rem;
+  line-height: 1;
+  border-radius: 6px;
+  z-index: 10;
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+/* Arrow hover state */
+.slide-btn:hover {
+  background-color: var(--millersville-gold);
+  color: var(--millersville-black);
+  transform: translateY(-50%) scale(1.05);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+}
+
+/* Left arrow */
+.prev {
+  left: 20px;
+}
+
+/* Right arrow */
+.next {
+  right: 20px;
 }
