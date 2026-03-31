@@ -391,3 +391,46 @@ body {
   text-align: center;
   padding: 60px 20px;
 }
+/* =========================
+   HIGHLIGHTS SECTION HEADER
+   ========================= */
+
+.highlights {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  padding: 30px;
+  background: var(--millersville-gold);
+}
+
+.highlight-card {
+  background: var(--millersville-light-gray);
+  padding: 20px;
+  border-radius: 6px;
+}
+
+/* Small label above title */
+.highlights-eyebrow {
+  margin: 0;
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: var(--millersville-black);
+  font-weight: 600;
+}
+
+/* Main title */
+.highlights-title {
+  margin: 8px 0 0px;
+  font-size: 2rem;
+  color: var(--millersville-black);
+}
+
+/* Container for cards */
+.highlights-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
