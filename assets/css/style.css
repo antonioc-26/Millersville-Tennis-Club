@@ -330,3 +330,59 @@ body {
   color: var(--millersville-gold);
   transform: translateY(-1px);
 }
+
+/* =========================
+   HERO SECTION
+   ========================= */
+
+.hero {
+  min-height: 70vh;
+  background: url("/assets/images/hero.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-overlay {
+  width: 100%;
+  background: transparent;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 3rem;
+  color: var(--millersville-white);
+  background: transparent;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+}
+
+.hero-subtitle {
+  margin: 20px 0;
+  color: var(--millersville-white);
+  font-size: 20px;
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.7);
+  font-weight: 500;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.hero-button {
+  padding: 12px 22px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.hero-button-primary {
+  background: var(--millersville-gold);
+  color: var(--millersville-white);
+}
+
+.hero-button-secondary {
+  border: 2px solid white;
+  color: white;
+}
