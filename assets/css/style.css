@@ -1,0 +1,332 @@
+/* 
+=============================================================================
+File: style.css
+Author: Antonio Corona
+Project: Millersville Tennis Club Website
+
+Purpose:
+    Defines the global visual styling for the Millersville Tennis Club
+    website, including shared color variables, base document resets,
+    universal header styling, and universal footer styling.
+
+Responsibilities:
+    - Store reusable Millersville brand color variables
+    - Apply global reset and box-model rules
+    - Style the reusable multi-layer site header
+    - Style navigation links and header contact information
+    - Style the reusable site footer and social media buttons
+    - Style footer contact information and bottom branding link
+
+Architectural Role:
+    - Acts as the global stylesheet for the project
+    - Supports reusable HTML components such as header.html and footer.html
+    - Centralizes branding, spacing, typography, hover states, and shadows
+      for consistent presentation across all pages
+
+Notes:
+    - This file is intended to be shared by all HTML pages
+    - Custom properties in :root provide reusable brand values
+    - Header and footer styles are designed for component-based injection
+    - Existing values and behavior have been preserved exactly as provided
+============================================================================= */
+
+/* =============================================================================
+   COLOR VARIABLES
+   Stores reusable Millersville brand colors, supporting tones, and shared
+   effect variables for use throughout the site.
+   ============================================================================= */
+
+:root {
+  --millersville-maroon: #5b0f24;
+  --millersville-black: #231f20;
+  --millersville-gold: #c99700;
+  --millersville-white: #ffffff;
+
+  /* Optional supporting tones for later use */
+  --millersville-light-gold: #e0b84f;
+  --millersville-light-gray: #f5f5f5c7;
+  --millersville-dark-gray: #333333;
+
+  /* Shared shadow */
+  --header-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+}
+
+/* =============================================================================
+   GLOBAL RESET / BASE
+   Establishes a consistent box model and removes default browser spacing.
+   ============================================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* =============================================================================
+   UNIVERSAL HEADER STYLING
+   Styles the reusable multi-layer site header, including:
+     - top branding area
+     - centered navigation area
+     - bottom information bar
+   ============================================================================= */
+
+/* Main header container */
+.site-header {
+  width: 100%;
+  margin: 0;
+  padding: 8px 0;
+  font-family: Arial, sans-serif;
+  box-shadow: var(--header-shadow);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* -----------------------------------------------------------------------------
+   HEADER TOP LAYER
+   Contains the main club branding/title.
+   ----------------------------------------------------------------------------- */
+
+.header-top {
+  width: 100%;
+  background-color: var(--millersville-white);
+  color: var(--millersville-black);
+  text-align: center;
+  padding: 14px 0;
+}
+
+.club-name {
+  margin: 0;
+  font-size: 40px;
+  letter-spacing: 1px;
+  color: var(--millersville-gold);
+}
+
+/* Primary home link styling for the clickable site title */
+.home-link {
+  text-decoration: none;
+  color: var(--millersville-gold);
+}
+
+/* Subtle hover effect for the clickable title */
+.home-link:hover {
+  opacity: 0.85;
+}
+
+/* -----------------------------------------------------------------------------
+   HEADER MIDDLE LAYER
+   Contains the centered horizontal navigation links.
+   ----------------------------------------------------------------------------- */
+
+.header-middle {
+  width: 100%;
+  background-color: var(--millersville-white);
+}
+
+/* Navigation list container */
+.nav-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 10px;
+}
+
+/* Individual navigation items */
+.nav-links li {
+  margin: 0 12px;
+}
+
+/* Navigation links */
+.nav-links a {
+  display: inline-block;
+  padding: 5px 0;
+  text-decoration: none;
+  color: var(--millersville-black);
+  font-weight: bold;
+  font-size: 18px;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+/* Navigation hover effect */
+.nav-links a:hover {
+  background-color: transparent;
+  color: var(--millersville-gold);
+}
+
+/* Active/current page state */
+.nav-links a.active {
+  background-color: var(--millersville-white);
+  color: var(--millersville-gold);
+}
+
+/* -----------------------------------------------------------------------------
+   HEADER BOTTOM INFO BAR
+   Displays contact/location information below the navigation bar.
+   ----------------------------------------------------------------------------- */
+
+.header-bottom-info {
+  width: 100%;
+  background-color: var(--millersville-white);
+  text-align: center;
+  padding: 8px 0;
+}
+
+.header-info-text {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--millersville-gold);
+}
+
+/* Shared divider symbol between pieces of contact information */
+.divider {
+  margin: 0 10px;
+  color: var(--millersville-dark-gray);
+  font-weight: bold;
+}
+
+/* Header email link styling */
+.header-email {
+  color: var(--millersville-gold);
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+/* =============================================================================
+   UNIVERSAL FOOTER STYLING
+   Styles the reusable site footer, including:
+     - footer title
+     - social button row
+     - footer contact text
+     - bottom branding/home link
+   ============================================================================= */
+
+/* Main footer container */
+.site-footer {
+  background-color: transparent;
+  color: var(--millersville-black);
+  text-align: center;
+  padding: 30px 20px 20px;
+  margin-top: 40px;
+  box-shadow: 0 -6px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* Footer heading */
+.footer-title {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: var(--millersville-gold);
+}
+
+/* -----------------------------------------------------------------------------
+   FOOTER SOCIAL BUTTONS
+   Defines the layout and interactions for social media CTA buttons.
+   ----------------------------------------------------------------------------- */
+
+/* Social buttons row */
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Individual social call-to-action buttons */
+.cta-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--millersville-white);
+  color: var(--millersville-black);
+  padding: 10px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  transition: all 0.25s ease;
+  will-change: transform;
+}
+
+/* Social icon images inside buttons */
+.cta-button img {
+  display: block;
+}
+
+/* Social button hover effect */
+.cta-button:hover {
+  background-color: var(--millersville-light-gray);
+  color: var(--millersville-black);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+}
+
+/* -----------------------------------------------------------------------------
+   FOOTER CONTACT TEXT
+   Displays repeated address/email information between the footer title and
+   social buttons.
+   ----------------------------------------------------------------------------- */
+
+.footer-contact-text {
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+  color: var(--millersville-gold);
+}
+
+/* Divider styling reused specifically within footer contact text */
+.footer-contact-text .divider {
+  margin: 0 10px;
+  color: var(--millersville-dark-gray);
+  font-weight: bold;
+}
+
+/* Footer email link styling */
+.footer-email {
+  color: var(--millersville-gold);
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+/* -----------------------------------------------------------------------------
+   FOOTER BOTTOM BRANDING
+   Styles the bottom-most branding/home link with mini logo and text.
+   ----------------------------------------------------------------------------- */
+
+.footer-bottom {
+  margin-top: 25px;
+}
+
+/* Branding link container */
+.footer-home-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--millersville-gold);
+  font-size: 0.9rem;
+  transition: all 0.25s ease;
+}
+
+/* Mini branding logo */
+.footer-logo {
+  width: 24px;
+  height: 24px;
+}
+
+/* Branding text */
+.footer-home-text {
+  font-weight: 500;
+}
+
+/* Branding link hover effect */
+.footer-home-link:hover {
+  color: var(--millersville-gold);
+  transform: translateY(-1px);
+}

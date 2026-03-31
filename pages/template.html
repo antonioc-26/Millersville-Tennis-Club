@@ -1,31 +1,35 @@
 <!--
 ============================================================================
-File: index.html
+File: template.html
 Author: Antonio Corona
 Project: Millersville Tennis Club Website
+
 Purpose:
-Serves as the main landing page shell for the Millersville Tennis Club
-website. This file provides the base HTML structure and dynamically loads
-the shared header and footer components used across the site.
+    Serves as a reusable base template for all pages in the Millersville
+    Tennis Club website. This file provides a consistent layout structure
+    and dynamically loads shared components such as the header and footer.
 
 Responsibilities:
-- Define the base HTML document structure
-- Load the global stylesheet
-- Provide mount points for the universal header and footer
-- Import shared configuration values from config.js
-- Dynamically inject header content and populate shared contact details
-- Dynamically inject footer content and populate social/contact details
+    - Define the base HTML document structure and metadata
+    - Load the global stylesheet for consistent site-wide styling
+    - Provide mount points for universal header and footer components
+    - Import shared configuration values from config.js
+    - Dynamically inject header content and populate branding/contact data
+    - Dynamically inject footer content and populate social/contact data
+    - Act as a scaffold for inserting page-specific content within <main>
 
 Architectural Role:
-- Acts as a top-level page entry point
-- Uses reusable HTML components to support consistent site-wide layout
-- Relies on client-side JavaScript for shared UI composition
+    - Acts as a reusable page template for all site pages
+    - Implements a component-based architecture using client-side rendering
+    - Centralizes layout logic while keeping content modular and maintainable
+    - Enables consistent branding and navigation across the entire site
 
 Notes:
-- Header content is loaded from /components/header.html
-- Footer content is loaded from /components/footer.html
-- Shared site values come from /assets/js/config.js
-- The #header and #footer containers act as insertion points
+    - Header content is loaded from /components/header.html
+    - Footer content is loaded from /components/footer.html
+    - Shared site configuration values are sourced from /assets/js/config.js
+    - The #header and #footer elements act as dynamic injection points
+    - This template should be duplicated for new pages to ensure consistency
 ============================================================================
 -->
 <!doctype html>
