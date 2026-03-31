@@ -386,3 +386,8 @@ body {
   border: 2px solid white;
   color: white;
 }
+
+.about {
+  text-align: center;
+  padding: 60px 20px;
+}
