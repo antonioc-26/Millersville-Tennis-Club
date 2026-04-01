@@ -636,7 +636,7 @@ body {
 
 .faq-preview-section {
   padding: 80px 20px;
-  background-color: var(--millersville-light-gray);
+  background-color: var(--millersville-white);
 }
 
 .faq-preview-container {
@@ -796,5 +796,52 @@ body {
   max-width: 1000px;
   font-size: 1.45rem;
   line-height: 1.5;
+  color: var(--millersville-black);
+}
+
+/* =============================================================================
+   STANDARD INNER PAGE PLACEHOLDERS
+   Provides temporary styling for secondary pages until custom content
+   sections are built out individually.
+   ============================================================================= */
+
+.standard-page {
+  padding: 80px 20px;
+  min-height: 60vh;
+  background-color: var(--millersville-light-gray);
+}
+
+.page-hero {
+  max-width: 900px;
+  margin: 0 auto 32px;
+  text-align: center;
+}
+
+.page-title {
+  margin: 0 0 16px;
+  font-size: 3rem;
+  color: var(--millersville-black);
+}
+
+.page-subtitle {
+  margin: 0;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--millersville-dark-gray);
+}
+
+.page-content {
+  max-width: 850px;
+  margin: 0 auto;
+  background-color: var(--millersville-white);
+  padding: 32px;
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+
+.page-content p {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.7;
   color: var(--millersville-black);
 }
