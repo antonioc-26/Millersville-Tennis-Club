@@ -65,4 +65,9 @@ export const SITE_CONFIG = {
    * Can be used for banners, announcements, or scheduling context
    */
   season: "Spring 2026",
+
+  links: {
+    rcw: "https://www.rcwathleticclub.com/",
+    hempfield: "https://hempfieldrec.com/departments/tennis/",
+  },
 };

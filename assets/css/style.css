@@ -38,13 +38,15 @@ Notes:
 
 :root {
   --millersville-maroon: #5b0f24;
-  --millersville-black: #231f20;
-  --millersville-gold: #c99700;
-  --millersville-white: #ffffff;
+  --millersville-black: #000;
+  --millersville-gold: #eeb211;
+  --millersville-white: #fff;
 
   /* Optional supporting tones for later use */
   --millersville-light-gold: #e0b84f;
+  --millersville-dark-gold: #d09400;
   --millersville-light-gray: #f5f5f5c7;
+  --millersville-medium-gray: #f5f5f5a4;
   --millersville-dark-gray: #333333;
 
   /* Shared shadow */
@@ -74,6 +76,13 @@ body {
      - bottom information bar
    ============================================================================= */
 
+#header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: var(--millersville-white);
+}
+
 /* Main header container */
 .site-header {
   width: 100%;
@@ -81,9 +90,7 @@ body {
   padding: 8px 0;
   font-family: Arial, sans-serif;
   box-shadow: var(--header-shadow);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  background-color: var(--millersville-white);
 }
 
 /* -----------------------------------------------------------------------------
@@ -215,7 +222,6 @@ body {
   color: var(--millersville-black);
   text-align: center;
   padding: 30px 20px 20px;
-  margin-top: 40px;
   box-shadow: 0 -6px 16px rgba(0, 0, 0, 0.25);
 }
 
@@ -329,4 +335,466 @@ body {
 .footer-home-link:hover {
   color: var(--millersville-gold);
   transform: translateY(-1px);
+}
+
+/* =========================
+   HERO SECTION
+   ========================= */
+
+.hero {
+  min-height: 70vh;
+  background: url("/assets/images/hero.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-overlay {
+  width: 100%;
+  background: transparent;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 3rem;
+  color: var(--millersville-white);
+  background: transparent;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+}
+
+.hero-subtitle {
+  margin: 20px 0;
+  color: var(--millersville-white);
+  font-size: 20px;
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.7);
+  font-weight: 500;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.hero-button {
+  padding: 12px 22px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.hero-button-primary {
+  background: var(--millersville-gold);
+  color: var(--millersville-white);
+}
+
+.hero-button-secondary {
+  border: 2px solid white;
+  color: white;
+}
+
+.about {
+  text-align: center;
+  padding: 60px 20px;
+}
+/* =========================
+   HIGHLIGHTS SECTION HEADER
+   ========================= */
+
+.highlights {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  padding: 30px;
+  background: var(--millersville-gold);
+}
+
+.highlight-card {
+  background: var(--millersville-light-gray);
+  padding: 20px;
+  border-radius: 6px;
+}
+
+/* Small label above title */
+.highlights-eyebrow {
+  margin: 0;
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: var(--millersville-black);
+  font-weight: 600;
+}
+
+/* Main title */
+.highlights-title {
+  margin: 8px 0 0px;
+  font-size: 2rem;
+  color: var(--millersville-black);
+}
+
+/* Container for cards */
+.highlights-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* =========================
+   SLIDESHOW
+   ========================= */
+
+/* Outer slideshow section */
+.slideshow-section {
+  padding: 60px 20px;
+}
+
+/* Section title */
+.slideshow-title {
+  margin: 0 0 20px;
+  text-align: center;
+  color: var(--millersville-gold);
+}
+
+/* Main slideshow frame */
+.slideshow {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  height: clamp(320px, 50vw, 500px);
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: var(--millersville-black);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  padding: 30px 20px;
+}
+
+/* Slides wrapper */
+.slides {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Individual slide */
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Active slide */
+.slide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Slide image */
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Navigation arrows */
+.slide-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(35, 31, 32, 0.8);
+  color: var(--millersville-white);
+  border: none;
+  padding: 12px 14px;
+  cursor: pointer;
+  font-size: 1.4rem;
+  line-height: 1;
+  border-radius: 6px;
+  z-index: 10;
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+/* Arrow hover state */
+.slide-btn:hover {
+  background-color: var(--millersville-gold);
+  color: var(--millersville-black);
+  transform: translateY(-50%) scale(1.05);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+}
+
+/* Left arrow */
+.prev {
+  left: 20px;
+}
+
+/* Right arrow */
+.next {
+  right: 20px;
+}
+
+/* =============================================================================
+   HOME PAGE - COURTS / FACILITIES SECTION
+   Highlights indoor and outdoor playing options with image cards.
+   ============================================================================= */
+
+.courts-section {
+  padding: 80px 20px;
+  background-color: var(--millersville-light-gray);
+}
+
+.courts-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.section-title {
+  margin: 0 0 40px;
+  font-size: 3rem;
+  color: var(--millersville-black);
+}
+
+.courts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px;
+  align-items: start;
+}
+
+.court-card {
+  text-align: center;
+}
+
+.court-title {
+  margin: 0 0 20px;
+  font-size: 2rem;
+  color: var(--millersville-black);
+}
+
+.court-image {
+  width: 100%;
+  max-width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+}
+
+.court-description {
+  margin: 20px auto 0;
+  max-width: 90%;
+  font-size: 1.55rem;
+  line-height: 1.5;
+  color: var(--millersville-black);
+}
+
+.inline-link {
+  color: #0f2d52;
+  text-decoration: underline;
+}
+
+.section-button-wrapper {
+  margin-top: 48px;
+}
+
+.section-button {
+  display: inline-block;
+  padding: 18px 34px;
+  background-color: var(--millersville-white);
+  color: var(--millersville-black);
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 700;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.section-button:hover {
+  background-color: var(--millersville-white);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22);
+}
+
+/* =============================================================================
+   HOME PAGE - FAQ PREVIEW SECTION
+   Provides a preview of common questions and routes users to the full FAQ page.
+   ============================================================================= */
+
+.faq-preview-section {
+  padding: 80px 20px;
+  background-color: var(--millersville-light-gray);
+}
+
+.faq-preview-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.faq-preview-list {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.faq-preview-item + .faq-preview-item {
+  margin-top: 48px;
+}
+
+.faq-question {
+  margin: 0 0 10px;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--millersville-black);
+}
+
+.faq-answer {
+  margin: 0;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  color: var(--millersville-black);
+}
+
+/* =============================================================================
+   HOME PAGE - OFFICERS / SUPPORT SECTION
+   Highlights leadership and directs users toward contact and roster pages.
+   ============================================================================= */
+
+.officers-section {
+  padding: 80px 20px;
+  background-color: #dfe8ee;
+}
+
+.officers-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.officers-subtitle {
+  margin: 0 auto 42px;
+  max-width: 1000px;
+  font-size: 1.45rem;
+  line-height: 1.5;
+  color: var(--millersville-black);
+}
+
+.officers-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 34px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.officer-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-align: left;
+}
+
+.officer-photo,
+.officer-initials {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.18);
+}
+
+.officer-photo {
+  object-fit: cover;
+}
+
+.officer-initials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #26b8f2, #1d8fca);
+  color: var(--millersville-white);
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.officer-name {
+  margin: 0 0 4px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #0f2d52;
+}
+
+.officer-role {
+  margin: 0;
+  font-size: 1.2rem;
+  color: var(--millersville-black);
+}
+
+.officers-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 68px;
+  flex-wrap: wrap;
+}
+
+.officers-link {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--millersville-black);
+  text-decoration: none;
+}
+
+.officers-link:hover {
+  color: #0f2d52;
+  text-decoration: underline;
+}
+
+.cta {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: transparent;
+}
+
+.cta .section-title {
+  font-size: 40px;
+  margin-bottom: 25px;
+}
+
+.cta .section-button {
+  display: inline-block;
+  padding: 18px 34px;
+  background-color: var(--millersville-gold);
+  color: var(--millersville-white);
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 700;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
+  margin-bottom: 15px;
+}
+
+.cta-subtitle {
+  margin: 0 auto 20px;
+  max-width: 1000px;
+  font-size: 1.45rem;
+  line-height: 1.5;
+  color: var(--millersville-black);
 }
