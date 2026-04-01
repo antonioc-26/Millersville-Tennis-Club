@@ -38,13 +38,15 @@ Notes:
 
 :root {
   --millersville-maroon: #5b0f24;
-  --millersville-black: #231f20;
-  --millersville-gold: #c99700;
-  --millersville-white: #ffffff;
+  --millersville-black: #000;
+  --millersville-gold: #eeb211;
+  --millersville-white: #fff;
 
   /* Optional supporting tones for later use */
   --millersville-light-gold: #e0b84f;
+  --millersville-dark-gold: #d09400;
   --millersville-light-gray: #f5f5f5c7;
+  --millersville-medium-gray: #f5f5f5a4;
   --millersville-dark-gray: #333333;
 
   /* Shared shadow */
@@ -658,6 +660,102 @@ body {
   font-size: 1.5rem;
   line-height: 1.5;
   color: var(--millersville-black);
+}
+
+/* =============================================================================
+   HOME PAGE - OFFICERS / SUPPORT SECTION
+   Highlights leadership and directs users toward contact and roster pages.
+   ============================================================================= */
+
+.officers-section {
+  padding: 80px 20px;
+  background-color: #dfe8ee;
+}
+
+.officers-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.officers-subtitle {
+  margin: 0 auto 42px;
+  max-width: 1000px;
+  font-size: 1.45rem;
+  line-height: 1.5;
+  color: var(--millersville-black);
+}
+
+.officers-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 34px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.officer-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-align: left;
+}
+
+.officer-photo,
+.officer-initials {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.18);
+}
+
+.officer-photo {
+  object-fit: cover;
+}
+
+.officer-initials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #26b8f2, #1d8fca);
+  color: var(--millersville-white);
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.officer-name {
+  margin: 0 0 4px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #0f2d52;
+}
+
+.officer-role {
+  margin: 0;
+  font-size: 1.2rem;
+  color: var(--millersville-black);
+}
+
+.officers-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 68px;
+  flex-wrap: wrap;
+}
+
+.officers-link {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--millersville-black);
+  text-decoration: none;
+}
+
+.officers-link:hover {
+  color: #0f2d52;
+  text-decoration: underline;
 }
 
 .cta {
