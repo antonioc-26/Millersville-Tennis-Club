@@ -408,7 +408,7 @@ a {
     rgba(35, 31, 32, 0.35) 0%,
     rgba(35, 31, 32, 0.62) 100%
   );
-  padding: 72px 20px;
+  padding: 60px 20px;
   text-align: center;
   display: flex;
   align-items: center;
@@ -439,7 +439,7 @@ a {
   justify-content: center;
   gap: 16px;
   flex-wrap: wrap;
-  margin-bottom: 34px;
+  margin-bottom: 44px;
 }
 
 .hero-stat {
