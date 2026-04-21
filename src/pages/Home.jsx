@@ -139,7 +139,6 @@ export default function Home() {
       <section className="hero">
         <div className="hero-overlay">
           <div className="hero-content hero-content-polished">
-            <p className="hero-eyebrow">Millersville University</p>
 
             <h2 className="hero-title">Fun and Competitive Tennis</h2>
 
