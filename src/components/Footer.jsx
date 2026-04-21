@@ -1,6 +1,6 @@
 /*
 ============================================================================
-File: footer.jsx
+File: Footer.jsx
 Author: Antonio Corona
 Project: Millersville Tennis Club Website
 
