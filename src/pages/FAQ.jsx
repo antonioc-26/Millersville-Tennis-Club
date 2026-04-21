@@ -31,19 +31,31 @@ Notes:
 export default function FAQ() {
   return (
     <section className="standard-page">
-      {/* Page hero section introducing FAQ purpose */}
       <div className="page-hero">
+        <p className="section-eyebrow">COMMON QUESTIONS</p>
         <h1 className="page-title">Frequently Asked Questions</h1>
         <p className="page-subtitle">
-          Common questions and answers about membership, practices, dues, and club expectations will appear here.
+          Here are a few core questions students often have about membership,
+          play level, and club participation.
         </p>
       </div>
 
-      {/* Main content area for future FAQ entries */}
-      <div className="page-content">
+      <div className="page-content page-content-rich">
+        <h2>How much does it cost to join?</h2>
         <p>
-          This page is currently under construction. It will eventually answer
-          common questions students have about joining and participating in the club.
+          Dues and membership details will be finalized and clearly posted here.
+        </p>
+
+        <h2>Do I need to be advanced to join?</h2>
+        <p>
+          No. The club includes a range of experience levels, and the goal is to
+          help members improve while enjoying the team environment.
+        </p>
+
+        <h2>What happens during court time?</h2>
+        <p>
+          Depending on the day, sessions may include drills, doubles, singles,
+          king of the court, or other organized activities.
         </p>
       </div>
     </section>

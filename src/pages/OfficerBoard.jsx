@@ -28,23 +28,39 @@ Notes:
 ============================================================================
 */
 
+const officers = [
+  { name: "Peyton Loewer", role: "President" },
+  { name: "Connor Zimmermen", role: "Vice President" },
+  { name: "Lucas Dunkelberger", role: "Treasurer" },
+  { name: "Leah Howard", role: "Secretary" },
+];
+
 export default function OfficerBoard() {
   return (
     <section className="standard-page">
-      {/* Page hero section introducing the officer board */}
       <div className="page-hero">
+        <p className="section-eyebrow">CLUB LEADERSHIP</p>
         <h1 className="page-title">Officer Board</h1>
         <p className="page-subtitle">
-          Meet the club leadership team and learn more about the officers behind Millersville Club Tennis.
+          Meet the student leaders helping guide Millersville Club Tennis.
         </p>
       </div>
 
-      {/* Main content area for future officer details */}
-      <div className="page-content">
-        <p>
-          This page is currently under construction. It will eventually include
-          officer names, roles, bios, and leadership details.
-        </p>
+      <div className="page-content page-content-rich">
+        <div className="officer-board-grid">
+          {officers.map((officer) => (
+            <article key={officer.name} className="board-card">
+              <div className="board-card-initials">
+                {officer.name
+                  .split(" ")
+                  .map((part) => part[0])
+                  .join("")}
+              </div>
+              <h2 className="board-card-name">{officer.name}</h2>
+              <p className="board-card-role">{officer.role}</p>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );

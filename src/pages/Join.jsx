@@ -31,19 +31,35 @@ Notes:
 export default function Join() {
   return (
     <section className="standard-page">
-      {/* Page hero section introducing the purpose of this page */}
       <div className="page-hero">
-        <h1 className="page-title">Join the Club</h1>
+        <p className="section-eyebrow">GET INVOLVED</p>
+        <h1 className="page-title">Join Millersville Club Tennis</h1>
         <p className="page-subtitle">
-          Membership details, sign-up steps, and participation information will be added here soon.
+          Whether you are brand new to tennis or already an experienced player,
+          the club is built to help you improve, compete, and connect.
         </p>
       </div>
 
-      {/* Main content area for future join instructions */}
-      <div className="page-content">
+      <div className="page-content page-content-rich">
+        <h2>Who can join?</h2>
         <p>
-          This page is currently under construction. It will eventually explain
-          how students can join Millersville Club Tennis and what to expect as a member.
+          Millersville Club Tennis is open to students interested in tennis,
+          community, and personal growth through regular play and team
+          involvement.
+        </p>
+
+        <h2>What to expect</h2>
+        <ul className="content-list">
+          <li>Regular court time and organized practice sessions</li>
+          <li>Match play opportunities and competitive experiences</li>
+          <li>A welcoming team environment with different skill levels</li>
+          <li>Social events and club-wide engagement</li>
+        </ul>
+
+        <h2>Next steps</h2>
+        <p>
+          More detailed sign-up instructions, dues information, and onboarding
+          steps will be added here soon.
         </p>
       </div>
     </section>

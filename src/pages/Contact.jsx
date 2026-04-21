@@ -28,23 +28,51 @@ Notes:
 ============================================================================
 */
 
+import { SITE_CONFIG } from "../data/siteConfig";
+
 export default function Contact() {
   return (
     <section className="standard-page">
-      {/* Page hero section introducing contact purpose */}
       <div className="page-hero">
-        <h1 className="page-title">Contact Us</h1>
+        <p className="section-eyebrow">REACH OUT</p>
+        <h1 className="page-title">Contact the Club</h1>
         <p className="page-subtitle">
-          Contact details, officer communication options, and future inquiry forms will live here.
+          We would love to hear from prospective members, current students, and
+          anyone interested in the club.
         </p>
       </div>
 
-      {/* Main content area for future contact information */}
-      <div className="page-content">
+      <div className="page-content page-content-rich">
+        <h2>Email</h2>
         <p>
-          This page is currently under construction. It will eventually include
-          official club contact methods and other ways to connect with the club.
+          You can reach the club at{" "}
+          <a href={`mailto:${SITE_CONFIG.email}`} className="inline-link">
+            {SITE_CONFIG.email}
+          </a>
+          .
         </p>
+
+        <h2>Location</h2>
+        <p>{SITE_CONFIG.address}</p>
+
+        <h2>Socials</h2>
+        <ul className="content-list">
+          <li>
+            <a href={SITE_CONFIG.socials.instagram} target="_blank" rel="noreferrer" className="inline-link">
+              Instagram
+            </a>
+          </li>
+          <li>
+            <a href={SITE_CONFIG.socials.discord} target="_blank" rel="noreferrer" className="inline-link">
+              Discord
+            </a>
+          </li>
+          <li>
+            <a href={SITE_CONFIG.socials.linktree} target="_blank" rel="noreferrer" className="inline-link">
+              Linktree
+            </a>
+          </li>
+        </ul>
       </div>
     </section>
   );

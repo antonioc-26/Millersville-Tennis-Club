@@ -70,6 +70,45 @@ a {
   color: inherit;
 }
 
+.section-shell {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.section-intro {
+  max-width: 850px;
+  margin: 0 auto 36px;
+  text-align: center;
+}
+
+.section-eyebrow,
+.highlights-eyebrow,
+.hero-eyebrow {
+  margin: 0 0 12px;
+  color: var(--millersville-gold);
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.section-heading {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.15;
+}
+
+.about-copy {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about-copy p {
+  font-size: 1.12rem;
+  line-height: 1.9;
+  margin: 0 0 18px;
+}
+
 
 /* =============================================================================
    UNIVERSAL HEADER STYLING
@@ -271,6 +310,85 @@ a {
 
 
 /* =============================================================================
+   UNIVERSAL NAVIGATION STYLING
+     - Base styles for the site navigation, including mobile responsiveness.
+      - The .nav-shell class can be used to wrap the navigation in any section
+        to provide consistent spacing and positioning.
+   ============================================================================= */
+
+.nav-shell {
+  position: relative;
+}
+
+.mobile-nav-toggle {
+  display: none;
+  margin: 0 auto;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.mobile-nav-toggle span {
+  display: block;
+  width: 26px;
+  height: 3px;
+  margin: 5px 0;
+  background-color: var(--millersville-black);
+  border-radius: 999px;
+}
+
+.site-nav {
+  display: block;
+}
+
+
+@media (max-width: 768px) {
+  .mobile-nav-toggle {
+    display: block;
+  }
+
+  .site-nav {
+    display: none;
+    margin-top: 10px;
+  }
+
+  .site-nav.open {
+    display: block;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 4px;
+    padding: 10px 0 4px;
+  }
+
+  .nav-links li {
+    margin: 0;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 10px 0;
+    font-size: 1rem;
+  }
+
+  .highlights-container {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-stats {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-stat {
+    width: min(280px, 100%);
+  }
+}
+
+
+/* =============================================================================
    HOME PAGE - HERO SECTION
    ============================================================================= */
 
@@ -284,17 +402,23 @@ a {
 
 .hero-overlay {
   width: 100%;
-  background: rgba(0, 0, 0, 0.45);
+  min-height: 78vh;
+  background: linear-gradient(
+    180deg,
+    rgba(35, 31, 32, 0.35) 0%,
+    rgba(35, 31, 32, 0.62) 100%
+  );
   padding: 60px 20px;
   text-align: center;
-  min-height: 70vh;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.hero-content {
-  max-width: 900px;
+.hero-content-polished {
+  max-width: 950px;
+  text-align: center;
+  color: var(--millersville-white);
 }
 
 .hero-title {
@@ -315,6 +439,29 @@ a {
   justify-content: center;
   gap: 16px;
   flex-wrap: wrap;
+  margin-bottom: 44px;
+}
+
+.hero-stat {
+  min-width: 180px;
+  padding: 16px 18px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(6px);
+}
+
+.hero-stat-number {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--millersville-gold);
+}
+
+.hero-stat-label {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.95rem;
+  color: var(--millersville-white);
 }
 
 .hero-button {
@@ -375,7 +522,8 @@ a {
    ============================================================================= */
 
 .highlights {
-  padding: 60px 20px;
+  padding-top: 60px;
+  padding-bottom: 60px;
   background-color: var(--millersville-light-gray);
 }
 
@@ -397,21 +545,42 @@ a {
 }
 
 .highlights-container {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .highlight-card {
   background: var(--millersville-white);
-  padding: 24px 28px;
-  border-radius: 10px;
-  min-width: 220px;
+  padding: 30px 24px;
+  border-radius: 14px;
   text-align: center;
   font-weight: 700;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
+
+.highlight-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.highlight-card-title {
+  margin: 0 0 12px;
+  font-size: 1.35rem;
+  color: var(--millersville-black);
+}
+
+.highlight-card-text {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--millersville-dark-gray);
+  font-weight: 400;
+}
+
 
 
 /* =============================================================================
@@ -847,4 +1016,70 @@ a {
   .page-content {
     padding: 24px;
   }
+}
+
+/* =============================================================================
+   SHARED INNER PAGE CONTENT STYLES
+   - These styles can be applied to any inner page that uses the .standard-page
+     layout, providing consistent typography and spacing for headings, paragraphs,
+     and lists within the page content area.
+    - The .page-content-rich class can be added to the content container to enable
+      additional styling for rich text elements like headings and lists.
+   ============================================================================= */
+
+.page-content-rich h2 {
+  margin: 0 0 12px;
+  font-size: 1.45rem;
+  color: var(--millersville-black);
+}
+
+.page-content-rich p {
+  margin: 0 0 24px;
+}
+
+.content-list {
+  margin: 0 0 28px;
+  padding-left: 22px;
+  line-height: 1.8;
+}
+
+.content-list li {
+  margin-bottom: 10px;
+}
+
+.officer-board-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
+}
+
+.board-card {
+  text-align: center;
+  padding: 28px 20px;
+  border-radius: 14px;
+  background: var(--millersville-light-gray);
+}
+
+.board-card-initials {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #26b8f2, #1d8fca);
+  color: var(--millersville-white);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.board-card-name {
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+}
+
+.board-card-role {
+  margin: 0;
+  color: var(--millersville-dark-gray);
 }

@@ -31,20 +31,30 @@ Notes:
 export default function Schedule() {
   return (
     <section className="standard-page">
-      {/* Page hero section introducing the schedule */}
       <div className="page-hero">
+        <p className="section-eyebrow">WHEN WE PLAY</p>
         <h1 className="page-title">Club Schedule</h1>
         <p className="page-subtitle">
-          Practice times, match dates, and upcoming events will be listed here.
+          This page will house the club’s recurring practices, match windows,
+          and special events.
         </p>
       </div>
 
-      {/* Main content area for future scheduling information */}
-      <div className="page-content">
+      <div className="page-content page-content-rich">
+        <h2>Practice Structure</h2>
         <p>
-          This page is currently under construction. It will eventually display
-          the club's regular schedule, events, and match-related information.
+          Club sessions typically balance skill development, drills, and match
+          play so members can improve while also enjoying competitive and social
+          tennis.
         </p>
+
+        <h2>What will be listed here</h2>
+        <ul className="content-list">
+          <li>Weekly practice times</li>
+          <li>Indoor and outdoor location notes</li>
+          <li>Match and event dates</li>
+          <li>Weather or location updates</li>
+        </ul>
       </div>
     </section>
   );
