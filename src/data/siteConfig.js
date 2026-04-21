@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * File: config.js
+ * File: siteConfig.js
  * Author: Antonio Corona
  * Project: Millersville Tennis Club Website
  *
