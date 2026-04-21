@@ -1,6 +1,6 @@
 /*
 ============================================================================
-File: header.jsx
+File: Header.jsx
 Author: Antonio Corona
 Project: Millersville Tennis Club Website
 
@@ -43,7 +43,7 @@ import { SITE_CONFIG } from "../data/siteConfig";
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const closeMenu = () => setMenuOpen(false);  
+  const closeMenu = () => setMenuOpen(false);
   
   return (
     <header className="site-header">
