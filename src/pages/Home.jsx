@@ -138,11 +138,15 @@ export default function Home() {
           ========================================================= */}
       <section className="hero">
         <div className="hero-overlay">
-          <div className="hero-content">
-            <h2 className="hero-title">Fun and Competitive Play</h2>
+          <div className="hero-content hero-content-polished">
+            <p className="hero-eyebrow">Millersville University</p>
+
+            <h2 className="hero-title">Fun and Competitive Tennis</h2>
+
             <p className="hero-subtitle">
-              Instruction, community, social, fun play, competitive play, and
-              leadership at Millersville University.
+              Millersville Club Tennis brings students together through instruction,
+              match play, social events, leadership, and a welcoming team culture for
+              players of many different experience levels.
             </p>
 
             <div className="hero-buttons">
@@ -150,9 +154,24 @@ export default function Home() {
                 Join The Tennis Club
               </Link>
 
-              <Link to="/contact" className="hero-button hero-button-secondary">
-                Contact Us
+              <Link to="/schedule" className="hero-button hero-button-secondary">
+                View Schedule
               </Link>
+            </div>
+
+            <div className="hero-stats">
+              <div className="hero-stat">
+                <span className="hero-stat-number">30+</span>
+                <span className="hero-stat-label">Active Members</span>
+              </div>
+              <div className="hero-stat">
+                <span className="hero-stat-number">3</span>
+                <span className="hero-stat-label">Court Locations</span>
+              </div>
+              <div className="hero-stat">
+                <span className="hero-stat-number">All</span>
+                <span className="hero-stat-label">Skill Levels Welcome</span>
+              </div>
             </div>
           </div>
         </div>
@@ -160,38 +179,64 @@ export default function Home() {
 
       {/* ABOUT SECTION
           Introduces the club mission and the type of experience members can expect. */}
-      <section className="about">
-        <h2>About the Club</h2>
-        <p>
-          Millersville Club Tennis brings together students who want to compete,
-          improve, and be part of a strong campus community.
-        </p>
-        <p>
-          This Club was set up to have fun while meeting new people over tennis
-          and developing along the way. Members vary from beginners to
-          experienced players. It is centered around developing at your own pace
-          and having a great environment to prosper within!
-        </p>
+      <section className="about section-shell">
+        <div className="section-intro">
+          <p className="section-eyebrow">WHO WE ARE</p>
+          <h2 className="section-heading">A tennis community built for growth and connection</h2>
+        </div>
+
+        <div className="about-copy">
+          <p>
+            Millersville Club Tennis brings together students who want to compete,
+            improve, and be part of a strong campus community.
+          </p>
+          <p>
+            The club is designed to be both welcoming and developmental. Members range
+            from beginners to experienced players, and the goal is to create an
+            environment where everyone can improve at their own pace while having fun
+            with teammates and friends.
+          </p>
+        </div>
       </section>
 
       {/* HIGHLIGHTS SECTION
           Provides a quick scan of the club's main value areas. */}
-      <section className="highlights">
-        <div className="highlights-header">
+      <section className="highlights section-shell">
+        <div className="highlights-header section-intro">
           <p className="highlights-eyebrow">WHAT WE OFFER</p>
-          <h2 className="highlights-title">Club Highlights</h2>
+          <h2 className="highlights-title section-heading">Club Highlights</h2>
         </div>
 
         <div className="highlights-container">
-          <div className="highlight-card">Competitive Matches</div>
-          <div className="highlight-card">Team Practices</div>
-          <div className="highlight-card">Social Events</div>
+          <article className="highlight-card">
+            <h3 className="highlight-card-title">Competitive Matches</h3>
+            <p className="highlight-card-text">
+              Get match experience through organized play, competitive sets, and
+              club-level competition.
+            </p>
+          </article>
+
+          <article className="highlight-card">
+            <h3 className="highlight-card-title">Team Practices</h3>
+            <p className="highlight-card-text">
+              Build skills through regular court sessions, drills, and guided
+              repetitions with other members.
+            </p>
+          </article>
+
+          <article className="highlight-card">
+            <h3 className="highlight-card-title">Social Events</h3>
+            <p className="highlight-card-text">
+              Meet other students, make friends, and enjoy the social side of club
+              tennis on and off the court.
+            </p>
+          </article>
         </div>
       </section>
 
       {/* SLIDESHOW SECTION
           Showcases club photos with both auto-rotation and manual controls. */}
-      <section className="slideshow-section">
+      <section className="slideshow-section section-shell">        
         <h2 className="slideshow-title">Club Highlights</h2>
 
         <div className="slideshow">
@@ -232,7 +277,7 @@ export default function Home() {
       {/* COURTS SECTION
           Highlights the primary locations where the club plays, including
           approved external venue links for indoor options. */}
-      <section className="courts-section">
+      <section className="courts-section section-shell">
         <div className="courts-container">
           <h2 className="section-title">The Courts We Play On</h2>
 
@@ -303,7 +348,7 @@ export default function Home() {
 
       {/* FAQ PREVIEW SECTION
           Answers common entry questions early and routes users to the full FAQ page. */}
-      <section className="faq-preview-section">
+      <section className="faq-preview-section section-shell">
         <div className="faq-preview-container">
           <h2 className="section-title">Frequently asked questions</h2>
 
@@ -353,7 +398,7 @@ export default function Home() {
       {/* OFFICERS SECTION
           Introduces a subset of club leadership and provides navigation
           for deeper contact or officer information. */}
-      <section className="officers-section">
+      <section className="officers-section section-shell">
         <div className="officers-container">
           <h2 className="section-title">We're here for you</h2>
           <p className="officers-subtitle">
@@ -388,7 +433,7 @@ export default function Home() {
 
       {/* JOIN CTA SECTION
           Final conversion-focused section for users ready to take the next step. */}
-      <section className="cta">
+      <section className="cta section-shell">
         <h2 className="section-title">Ready to Join?</h2>
 
         <Link to="/join" className="section-button hero-button-primary">
