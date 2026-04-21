@@ -1,17 +1,17 @@
 /*
 ============================================================================
-File: Contact.jsx
+File: OfficerBoard.jsx
 Author: Antonio Corona
 Project: Millersville Tennis Club Website
 
 Purpose:
-    Serves as the Contact page for the Millersville Tennis Club React application.
-    This page provides a placeholder for future contact methods and communication
-    details for students, prospective members, and visitors.
+    Serves as the Officer Board page for the Millersville Tennis Club React
+    application. This page will provide information about the club’s leadership
+    team and officer responsibilities.
 
 Responsibilities:
-    - Render page-specific contact content
-    - Provide a structured layout for future communication options
+    - Render page-specific content for the officer board
+    - Provide a structured layout for future leadership information
     - Maintain consistent styling with the rest of the site
 
 Architectural Role:
@@ -22,28 +22,28 @@ Architectural Role:
 Notes:
     - Header and Footer are NOT loaded here directly; they are handled globally in App.jsx
     - Future enhancements may include:
-        • Contact forms
-        • Officer email directory
-        • Embedded social media links
+        • Officer cards with names, roles, and photos
+        • Short bios and responsibilities for each officer
+        • Contact links for leadership positions
 ============================================================================
 */
 
-export default function Contact() {
+export default function OfficerBoard() {
   return (
     <section className="standard-page">
-      {/* Page hero section introducing contact purpose */}
+      {/* Page hero section introducing the officer board */}
       <div className="page-hero">
-        <h1 className="page-title">Contact Us</h1>
+        <h1 className="page-title">Officer Board</h1>
         <p className="page-subtitle">
-          Contact details, officer communication options, and future inquiry forms will live here.
+          Meet the club leadership team and learn more about the officers behind Millersville Club Tennis.
         </p>
       </div>
 
-      {/* Main content area for future contact information */}
+      {/* Main content area for future officer details */}
       <div className="page-content">
         <p>
           This page is currently under construction. It will eventually include
-          official club contact methods and other ways to connect with the club.
+          officer names, roles, bios, and leadership details.
         </p>
       </div>
     </section>

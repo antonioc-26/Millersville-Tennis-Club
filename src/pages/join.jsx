@@ -1,61 +1,51 @@
-<!--
+/*
 ============================================================================
-File: join.html
+File: Join.jsx
 Author: Antonio Corona
 Project: Millersville Tennis Club Website
 
 Purpose:
-    Serves as the Join page for the Millersville Tennis Club website.
-    This page will provide future membership and onboarding details for
-    prospective club members.
+    Serves as the Join page for the Millersville Tennis Club React application.
+    This page provides a placeholder for future membership and onboarding
+    information for prospective club members.
 
 Responsibilities:
-    - Load the universal site header and footer
-    - Provide a placeholder structure for future join information
-    - Maintain consistent layout and styling with the rest of the site
+    - Render page-specific content for joining the club
+    - Provide a structured layout for future membership details
+    - Maintain consistent styling with the rest of the site
 
 Architectural Role:
-    - Acts as a secondary site page
-    - Reuses shared layout components and global configuration values
+    - Acts as a routed page within the React application
+    - Rendered via react-router-dom inside App.jsx
+    - Relies on shared layout components (Header and Footer) defined at the app level
 
 Notes:
-    - Header content is loaded from /components/header.html
-    - Footer content is loaded from /components/footer.html
-    - Shared site configuration values are sourced from /assets/js/config.js
+    - Header and Footer are NOT loaded here directly; they are handled globally in App.jsx
+    - Future enhancements may include:
+        • Signup instructions
+        • Requirements and eligibility
+        • Interest forms or external links
 ============================================================================
--->
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Join | Millersville Tennis Club</title>
-    <link rel="stylesheet" href="/assets/css/style.css" />
-  </head>
+*/
 
-  <body>
-    <div id="header"></div>
-
-    <main class="standard-page">
-      <section class="page-hero">
-        <h1 class="page-title">Join the Club</h1>
-        <p class="page-subtitle">
-          Membership details, sign-up steps, and participation information will
-          be added here soon.
+export default function Join() {
+  return (
+    <section className="standard-page">
+      {/* Page hero section introducing the purpose of this page */}
+      <div className="page-hero">
+        <h1 className="page-title">Join the Club</h1>
+        <p className="page-subtitle">
+          Membership details, sign-up steps, and participation information will be added here soon.
         </p>
-      </section>
+      </div>
 
-      <section class="page-content">
+      {/* Main content area for future join instructions */}
+      <div className="page-content">
         <p>
           This page is currently under construction. It will eventually explain
-          how students can join Millersville Club Tennis, what dues look like,
-          and what to expect as a new member.
+          how students can join Millersville Club Tennis and what to expect as a member.
         </p>
-      </section>
-    </main>
-
-    <div id="footer"></div>
-
-    <script type="module" src="/assets/js/main.js"></script>
-  </body>
-</html>
+      </div>
+    </section>
+  );
+}
