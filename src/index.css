@@ -1,0 +1,850 @@
+/* =============================================================================
+   File: index.css
+   Author: Antonio Corona
+   Project: Millersville Tennis Club Website
+
+   Purpose:
+       Defines the global visual styling for the React-based Millersville
+       Tennis Club website, including reusable header/footer styles,
+       homepage section styles, and shared inner-page placeholder styling.
+
+   Responsibilities:
+       - Store reusable Millersville brand variables
+       - Apply global reset and base document styling
+       - Style the reusable site header and footer components
+       - Style homepage sections including hero, highlights, slideshow,
+         courts, FAQ preview, officers, and CTA
+       - Provide shared styling for inner placeholder pages
+
+   Notes:
+       - Image paths assume assets are located in /public/assets/images
+       - This stylesheet is imported through src/main.jsx
+   ============================================================================= */
+
+
+/* =============================================================================
+   COLOR VARIABLES
+   ============================================================================= */
+
+:root {
+  --millersville-maroon: #5b0f24;
+  --millersville-black: #231f20;
+  --millersville-gold: #c99700;
+  --millersville-white: #ffffff;
+
+  --millersville-light-gold: #e0b84f;
+  --millersville-light-gray: #f5f5f5c7;
+  --millersville-dark-gray: #333333;
+
+  --header-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+}
+
+
+/* =============================================================================
+   GLOBAL RESET / BASE
+   ============================================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: var(--millersville-black);
+  background-color: var(--millersville-white);
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+
+/* =============================================================================
+   UNIVERSAL HEADER STYLING
+   ============================================================================= */
+
+.site-header {
+  width: 100%;
+  margin: 0;
+  padding: 8px 0;
+  font-family: Arial, sans-serif;
+  box-shadow: var(--header-shadow);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: var(--millersville-white);
+}
+
+.header-top {
+  width: 100%;
+  background-color: var(--millersville-white);
+  color: var(--millersville-black);
+  text-align: center;
+  padding: 14px 0;
+}
+
+.club-name {
+  margin: 0;
+  font-size: 40px;
+  letter-spacing: 1px;
+  color: var(--millersville-gold);
+}
+
+.home-link {
+  text-decoration: none;
+  color: var(--millersville-gold);
+}
+
+.home-link:hover {
+  opacity: 0.85;
+}
+
+.header-middle {
+  width: 100%;
+  background-color: var(--millersville-white);
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.nav-links li {
+  margin: 0 12px;
+}
+
+.nav-links a {
+  display: inline-block;
+  padding: 5px 0;
+  text-decoration: none;
+  color: var(--millersville-black);
+  font-weight: bold;
+  font-size: 18px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-links a:hover {
+  background-color: transparent;
+  color: var(--millersville-gold);
+}
+
+.header-bottom-info {
+  width: 100%;
+  background-color: var(--millersville-white);
+  text-align: center;
+  padding: 8px 0;
+}
+
+.header-info-text {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--millersville-gold);
+}
+
+.divider {
+  margin: 0 10px;
+  color: var(--millersville-dark-gray);
+  font-weight: bold;
+}
+
+.header-email {
+  color: var(--millersville-gold);
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+
+/* =============================================================================
+   UNIVERSAL FOOTER STYLING
+   ============================================================================= */
+
+.site-footer {
+  background-color: transparent;
+  color: var(--millersville-black);
+  text-align: center;
+  padding: 30px 20px 20px;
+  margin-top: 40px;
+  box-shadow: 0 -6px 16px rgba(0, 0, 0, 0.25);
+}
+
+.footer-title {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: var(--millersville-gold);
+}
+
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.cta-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--millersville-white);
+  color: var(--millersville-black);
+  padding: 10px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  transition: all 0.25s ease;
+  will-change: transform;
+}
+
+.cta-button img {
+  display: block;
+}
+
+.cta-button:hover {
+  background-color: var(--millersville-light-gray);
+  color: var(--millersville-black);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+}
+
+.footer-contact-text {
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+  color: var(--millersville-gold);
+}
+
+.footer-contact-text .divider {
+  margin: 0 10px;
+  color: var(--millersville-dark-gray);
+  font-weight: bold;
+}
+
+.footer-email {
+  color: var(--millersville-gold);
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.footer-bottom {
+  margin-top: 25px;
+}
+
+.footer-home-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--millersville-gold);
+  font-size: 0.9rem;
+  transition: all 0.25s ease;
+}
+
+.footer-logo {
+  width: 24px;
+  height: 24px;
+}
+
+.footer-home-text {
+  font-weight: 500;
+}
+
+.footer-home-link:hover {
+  color: var(--millersville-gold);
+  transform: translateY(-1px);
+}
+
+
+/* =============================================================================
+   HOME PAGE - HERO SECTION
+   ============================================================================= */
+
+.hero {
+  min-height: 70vh;
+  background: url("/assets/images/hero.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-overlay {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  padding: 60px 20px;
+  text-align: center;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-content {
+  max-width: 900px;
+}
+
+.hero-title {
+  margin: 0;
+  font-size: 3rem;
+  color: var(--millersville-white);
+}
+
+.hero-subtitle {
+  margin: 20px 0;
+  color: var(--millersville-white);
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.hero-button {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.25s ease;
+}
+
+.hero-button-primary {
+  background: var(--millersville-gold);
+  color: var(--millersville-black);
+}
+
+.hero-button-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+}
+
+.hero-button-secondary {
+  border: 2px solid var(--millersville-white);
+  color: var(--millersville-white);
+  background-color: transparent;
+}
+
+.hero-button-secondary:hover {
+  background-color: var(--millersville-white);
+  color: var(--millersville-black);
+}
+
+
+/* =============================================================================
+   HOME PAGE - ABOUT SECTION
+   ============================================================================= */
+
+.about {
+  text-align: center;
+  padding: 60px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.about h2 {
+  margin-top: 0;
+  font-size: 2.5rem;
+}
+
+.about p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+
+/* =============================================================================
+   HOME PAGE - HIGHLIGHTS SECTION
+   ============================================================================= */
+
+.highlights {
+  padding: 60px 20px;
+  background-color: var(--millersville-light-gray);
+}
+
+.highlights-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.highlights-eyebrow {
+  margin: 0 0 10px;
+  color: var(--millersville-gold);
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.highlights-title {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+.highlights-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.highlight-card {
+  background: var(--millersville-white);
+  padding: 24px 28px;
+  border-radius: 10px;
+  min-width: 220px;
+  text-align: center;
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =============================================================================
+   HOME PAGE - SLIDESHOW SECTION
+   ============================================================================= */
+
+.slideshow-section {
+  padding: 60px 20px;
+}
+
+.slideshow-title {
+  text-align: center;
+  margin: 0 0 28px;
+  font-size: 2.5rem;
+}
+
+.slideshow {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.slides {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.slide {
+  display: none;
+  width: 100%;
+}
+
+.slide.active {
+  display: block;
+}
+
+.slide img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px;
+}
+
+.slide-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(35, 31, 32, 0.85);
+  color: var(--millersville-white);
+  border: none;
+  padding: 12px 16px;
+  cursor: pointer;
+  z-index: 2;
+  font-size: 1.5rem;
+  border-radius: 6px;
+  transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+.slide-btn:hover {
+  background-color: var(--millersville-gold);
+  color: var(--millersville-black);
+}
+
+.prev {
+  left: 12px;
+}
+
+.next {
+  right: 12px;
+}
+
+
+/* =============================================================================
+   HOME PAGE - COURTS SECTION
+   ============================================================================= */
+
+.courts-section {
+  padding: 80px 20px;
+  background-color: var(--millersville-light-gray);
+}
+
+.courts-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.section-title {
+  margin: 0 0 40px;
+  font-size: 3rem;
+  color: var(--millersville-black);
+}
+
+.courts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px;
+  align-items: start;
+}
+
+.court-card {
+  text-align: center;
+}
+
+.court-title {
+  margin: 0 0 20px;
+  font-size: 2rem;
+  color: var(--millersville-black);
+}
+
+.court-image {
+  width: 100%;
+  max-width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+}
+
+.court-description {
+  margin: 20px auto 0;
+  max-width: 90%;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: var(--millersville-black);
+}
+
+.inline-link {
+  color: #0f2d52;
+  text-decoration: underline;
+}
+
+.section-button-wrapper {
+  margin-top: 48px;
+}
+
+.section-button {
+  display: inline-block;
+  padding: 18px 34px;
+  background-color: var(--millersville-white);
+  color: var(--millersville-black);
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.section-button:hover {
+  background-color: var(--millersville-white);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22);
+}
+
+
+/* =============================================================================
+   HOME PAGE - FAQ PREVIEW SECTION
+   ============================================================================= */
+
+.faq-preview-section {
+  padding: 80px 20px;
+  background-color: var(--millersville-light-gray);
+}
+
+.faq-preview-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.faq-preview-list {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.faq-preview-item + .faq-preview-item {
+  margin-top: 48px;
+}
+
+.faq-question {
+  margin: 0 0 10px;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--millersville-black);
+}
+
+.faq-answer {
+  margin: 0;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: var(--millersville-black);
+}
+
+
+/* =============================================================================
+   HOME PAGE - OFFICERS SECTION
+   ============================================================================= */
+
+.officers-section {
+  padding: 80px 20px;
+  background-color: #dfe8ee;
+}
+
+.officers-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.officers-subtitle {
+  margin: 0 auto 42px;
+  max-width: 1000px;
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: var(--millersville-black);
+}
+
+.officers-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 34px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.officer-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-align: left;
+}
+
+.officer-avatar {
+  width: 76px;
+  height: 76px;
+  flex-shrink: 0;
+}
+
+.officer-photo,
+.officer-initials {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.18);
+}
+
+.officer-photo {
+  object-fit: cover;
+}
+
+.officer-initials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #26b8f2, #1d8fca);
+  color: var(--millersville-white);
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.officer-name {
+  margin: 0 0 4px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #0f2d52;
+}
+
+.officer-role {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--millersville-black);
+}
+
+.officers-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 68px;
+  flex-wrap: wrap;
+}
+
+.officers-link {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--millersville-black);
+  text-decoration: none;
+}
+
+.officers-link:hover {
+  color: #0f2d52;
+  text-decoration: underline;
+}
+
+
+/* =============================================================================
+   HOME PAGE - CTA SECTION
+   ============================================================================= */
+
+.cta {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.cta-subtitle {
+  margin-top: 20px;
+  font-size: 1.1rem;
+}
+
+
+/* =============================================================================
+   STANDARD INNER PAGE PLACEHOLDERS
+   ============================================================================= */
+
+.standard-page {
+  padding: 80px 20px;
+  min-height: 60vh;
+  background-color: var(--millersville-light-gray);
+}
+
+.page-hero {
+  max-width: 900px;
+  margin: 0 auto 32px;
+  text-align: center;
+}
+
+.page-title {
+  margin: 0 0 16px;
+  font-size: 3rem;
+  color: var(--millersville-black);
+}
+
+.page-subtitle {
+  margin: 0;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--millersville-dark-gray);
+}
+
+.page-content {
+  max-width: 850px;
+  margin: 0 auto;
+  background-color: var(--millersville-white);
+  padding: 32px;
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+
+.page-content p {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--millersville-black);
+}
+
+
+/* =============================================================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================================================= */
+
+@media (max-width: 1100px) {
+  .courts-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .club-name {
+    font-size: 2rem;
+  }
+
+  .nav-links li {
+    margin: 6px 10px;
+  }
+
+  .hero-title {
+    font-size: 2.25rem;
+  }
+
+  .hero-subtitle,
+  .about p,
+  .faq-answer,
+  .court-description,
+  .officers-subtitle,
+  .page-subtitle {
+    font-size: 1rem;
+  }
+
+  .section-title,
+  .slideshow-title,
+  .highlights-title,
+  .page-title {
+    font-size: 2rem;
+  }
+
+  .courts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .slide img {
+    height: 320px;
+  }
+
+  .officers-actions {
+    gap: 24px;
+  }
+
+  .header-info-text,
+  .footer-contact-text {
+    padding: 0 14px;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-buttons,
+  .social-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .slide-btn {
+    padding: 10px 12px;
+    font-size: 1.2rem;
+  }
+
+  .page-content {
+    padding: 24px;
+  }
+}

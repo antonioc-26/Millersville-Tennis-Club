@@ -1,6 +1,8 @@
+import { jsx } from "react/jsx-runtime";
+
 <!--
 ============================================================================
-File: template.html
+File: Template.jsx
 Author: Antonio Corona
 Project: Millersville Tennis Club Website
 
