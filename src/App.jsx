@@ -1,121 +1,88 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+/*
+============================================================================
+File: App.jsx
+Author: Antonio Corona
+Project: Millersville Tennis Club Website
 
+Purpose:
+    Serves as the root component of the React application. This file defines
+    the overall application layout and configures client-side routing using
+    react-router-dom.
+
+Responsibilities:
+    - Wrap the application in BrowserRouter for SPA routing support
+    - Render persistent layout components (Header and Footer)
+    - Define all application routes and map them to page components
+    - Ensure consistent page structure across all routes
+
+Structure:
+    1. BrowserRouter → Enables client-side routing
+    2. Header        → Persistent top navigation (visible on all pages)
+    3. Main Content  → Route-based page rendering
+    4. Footer        → Persistent bottom section (visible on all pages)
+
+Routing:
+    "/"               → Home page
+    "/join"           → Join page
+    "/contact"        → Contact page
+    "/schedule"       → Schedule page
+    "/faq"            → FAQ page
+    "/officer-board"  → Officer Board page
+
+Notes:
+    - Header and Footer are placed outside <Routes> so they persist across pages
+    - <main> wraps routed content for semantic structure and styling
+    - Each route renders a dedicated page component
+============================================================================
+*/
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Home from "./pages/Home";
+import Join from "./pages/Join";
+import Contact from "./pages/Contact";
+import Schedule from "./pages/Schedule";
+import FAQ from "./pages/FAQ";
+import OfficerBoard from "./pages/OfficerBoard";
+
+/**
+ * Root application component.
+ * Handles layout and routing for the entire site.
+ */
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <BrowserRouter>
+      {/* Persistent header displayed on all pages */}
+      <Header />
 
-      <div className="ticks"></div>
+      {/* Main content area where routed pages are rendered */}
+      <main>
+        <Routes>
+          {/* Route: Home Page */}
+          <Route path="/" element={<Home />} />
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+          {/* Route: Join Page */}
+          <Route path="/join" element={<Join />} />
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+          {/* Route: Contact Page */}
+          <Route path="/contact" element={<Contact />} />
+
+          {/* Route: Schedule Page */}
+          <Route path="/schedule" element={<Schedule />} />
+
+          {/* Route: FAQ Page */}
+          <Route path="/faq" element={<FAQ />} />
+
+          {/* Route: Officer Board Page */}
+          <Route path="/officer-board" element={<OfficerBoard />} />
+        </Routes>
+      </main>
+
+      {/* Persistent footer displayed on all pages */}
+      <Footer />
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
