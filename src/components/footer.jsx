@@ -1,12 +1,13 @@
-<!--
+/*
 ============================================================================
-File: footer.html
+File: footer.jsx
 Author: Antonio Corona
 Project: Millersville Tennis Club Website
+
 Purpose:
     Defines the reusable footer component displayed across all pages of the
-    website. This component provides contact information, social media links,
-    and branding/navigation back to the homepage.
+    React application. This component provides contact information, social
+    media links, and branding/navigation back to the homepage.
 
 Responsibilities:
     - Display a "Connect With Us" section for user engagement
@@ -16,82 +17,98 @@ Responsibilities:
     - Serve as a consistent UI component across all pages
 
 Architectural Role:
-    - Acts as a shared UI component loaded dynamically via JavaScript
-    - Relies on config.js for dynamic population of:
+    - Acts as a shared UI component used across all routed views
+    - Relies on SITE_CONFIG for dynamic population of:
         • Address
         • Email
         • Social media links
-    - Injected into pages via the #footer container
+    - Uses react-router-dom for internal navigation
 
 Notes:
-    - Social links are populated dynamically using element IDs
-    - Contact information is injected after component load
+    - Social links open in a new tab using target="_blank"
+    - rel="noreferrer" is included for security best practices
     - Logo image should exist at /assets/images/logo-mini.png
     - Social icons should exist in /assets/images/
 ============================================================================
--->
+*/
 
-<footer class="site-footer">
-  <div class="footer-container">
-    
-    <!-- 
-    =========================================================
-    SECTION: CONNECT HEADER
-    Displays the main call-to-action encouraging users to
-    engage with the club through available channels.
-    ========================================================= -->
-    <h2 class="footer-title">Connect With Us</h2>
+import { Link } from "react-router-dom";
+import { SITE_CONFIG } from "../data/siteConfig";
 
-    <!-- 
-    =========================================================
-    SECTION: CONTACT INFORMATION
-    Displays the club address and email.
-    Values are dynamically injected from config.js.
-    ========================================================= -->
-    <p class="footer-contact-text">
-      <span id="footer-address"></span>
-      <span class="divider">|</span>
-      <a href="#" id="footer-email" class="footer-email"></a>
-    </p>
+/**
+ * Renders the global footer used across the application.
+ *
+ * This component centralizes all contact and social information
+ * and ensures consistency across every page.
+ */
+export default function Footer() {
+  return (
+    <footer className="site-footer">
+      <div className="footer-container">
+        {/* Section: Call-to-action encouraging user engagement */}
+        <h2 className="footer-title">Connect With Us</h2>
 
-    <!-- 
-    =========================================================
-    SECTION: SOCIAL MEDIA BUTTONS
-    Provides links to external platforms for engagement.
-    Each link is dynamically assigned via config.js.
-    ========================================================= -->
-    <div class="social-buttons">
-      <!-- Linktree -->
-      <a id="linktree-link" target="_blank" class="cta-button cta-button-logo">
-        <img src="/assets/images/linktree-logo.svg" width="25">
-        <span>Linktree</span>
-      </a>
+        {/* Section: Contact information pulled from centralized config */}
+        <p className="footer-contact-text">
+          {SITE_CONFIG.address}
+          <span className="divider">|</span>
 
-      <!-- Instagram -->
-      <a id="instagram-link" target="_blank" class="cta-button cta-button-logo">
-        <img src="/assets/images/instagram-logo.svg" width="25">
-        <span>Instagram</span>
-      </a>
+          {/* Clickable email link using mailto */}
+          <a href={`mailto:${SITE_CONFIG.email}`} className="footer-email">
+            {SITE_CONFIG.email}
+          </a>
+        </p>
 
-      <!-- Discord -->
-      <a id="discord-link" target="_blank" class="cta-button cta-button-logo">
-        <img src="/assets/images/discord-logo.svg" width="25">
-        <span>Discord</span>
-      </a>
-    </div>
+        {/* Section: Social media links */}
+        <div className="social-buttons">
+          {/* Linktree */}
+          <a
+            href={SITE_CONFIG.socials.linktree}
+            target="_blank"
+            rel="noreferrer"
+            className="cta-button cta-button-logo"
+          >
+            <img src="/assets/images/linktree-logo.svg" width="25" alt="Linktree" />
+            <span>Linktree</span>
+          </a>
 
-    <!-- 
-    =========================================================
-    SECTION: FOOTER BRANDING / HOME NAVIGATION
-    Provides a secondary navigation path back to the homepage
-    and reinforces club branding using a mini logo.
-    ========================================================= -->
-    <div class="footer-bottom">
-      <a href="/index.html" class="footer-home-link">
-        <img src="/assets/images/logo-mini.png" alt="Club Logo" class="footer-logo">
-        <span class="footer-home-text">Millersville Club Tennis</span>
-      </a>
-    </div>
+          {/* Instagram */}
+          <a
+            href={SITE_CONFIG.socials.instagram}
+            target="_blank"
+            rel="noreferrer"
+            className="cta-button cta-button-logo"
+          >
+            <img src="/assets/images/instagram-logo.svg" width="25" alt="Instagram" />
+            <span>Instagram</span>
+          </a>
 
-  </div>
-</footer>
+          {/* Discord */}
+          <a
+            href={SITE_CONFIG.socials.discord}
+            target="_blank"
+            rel="noreferrer"
+            className="cta-button cta-button-logo"
+          >
+            <img src="/assets/images/discord-logo.svg" width="25" alt="Discord" />
+            <span>Discord</span>
+          </a>
+        </div>
+
+        {/* Section: Footer branding + navigation back to homepage */}
+        <div className="footer-bottom">
+          <Link to="/" className="footer-home-link">
+            <img
+              src="/assets/images/logo-mini.png"
+              alt="Club Logo"
+              className="footer-logo"
+            />
+            <span className="footer-home-text">
+              {SITE_CONFIG.clubName}
+            </span>
+          </Link>
+        </div>
+      </div>
+    </footer>
+  );
+}
