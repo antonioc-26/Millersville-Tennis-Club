@@ -66,7 +66,7 @@ export const SITE_CONFIG = {
    */
   season: "Spring 2026",
 
-  links: {
+  externalLinks: {
     rcw: "https://www.rcwathleticclub.com/",
     hempfield: "https://hempfieldrec.com/departments/tennis/",
   },
