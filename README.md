@@ -1,10 +1,38 @@
 # Millersville Club Tennis Website
 
+![Version](https://img.shields.io/badge/version-0.1.0-blue)
+![Status](https://img.shields.io/badge/status-pre--release-orange)
+![React](https://img.shields.io/badge/React-18-blue)
+![Vite](https://img.shields.io/badge/Vite-Build%20Tool-purple)
+![Deployment](https://img.shields.io/badge/deployed-Vercel-black)
+![License](https://img.shields.io/badge/license-Client%20Project-lightgrey)
+
+---
+
 ## Overview
 
 This project is the official website for the Millersville Club Tennis organization. It was designed and developed as a modern, responsive web application to improve the club’s online presence, streamline communication, and provide clear, accessible information to current and prospective members.
 
 The application emphasizes usability, scalability, and maintainability, ensuring that the club can continue to grow and update the site over time with minimal friction.
+
+--- 
+
+## 🌐 Live Demo
+
+https://millersville-tennis-club.vercel.app
+
+---
+
+## Screenshots
+
+### Homepage
+![Homepage](./docs/screenshots/homepage.jpg)
+
+### Mobile View
+![Mobile](./docs/screenshots/courts.jpg)
+
+### Officers Section
+![Officers](./docs/screenshots/officers.jpg)
 
 ---
 
@@ -33,7 +61,7 @@ This website also serves as a long-term foundation for future enhancements such 
 - Custom CSS (Responsive design with reusable styles and variables)
 
 **Deployment**
-- Vercel (Continuous deployment and hosting)
+- Vercel (Continuous intergration/deployment and hosting)
 
 ---
 
