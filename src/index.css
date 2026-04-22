@@ -36,6 +36,9 @@
   --millersville-light-gray: #f5f5f5c7;
   --millersville-dark-gray: #333333;
 
+  --warm-gold: #F8F5F0;
+  --soft-light-gray-blue: #F5F7FA;
+
   --header-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
 }
 
@@ -787,7 +790,7 @@ a {
 
 .officers-section {
   padding: 80px 20px;
-  background-color: #dfe8ee;
+  background-color: var(--warm-gold);
 }
 
 .officers-container {
@@ -1069,7 +1072,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #26b8f2, #1d8fca);
+  background: linear-gradient(135deg, #e0b84f, #c99700);
   color: var(--millersville-white);
   font-size: 1.4rem;
   font-weight: 700;
