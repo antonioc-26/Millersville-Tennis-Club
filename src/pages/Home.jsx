@@ -157,21 +157,7 @@ export default function Home() {
                 View Schedule
               </Link>
             </div>
-
-            <div className="hero-stats">
-              <div className="hero-stat">
-                <span className="hero-stat-number">30+</span>
-                <span className="hero-stat-label">Active Members</span>
-              </div>
-              <div className="hero-stat">
-                <span className="hero-stat-number">3</span>
-                <span className="hero-stat-label">Court Locations</span>
-              </div>
-              <div className="hero-stat">
-                <span className="hero-stat-number">All</span>
-                <span className="hero-stat-label">Skill Levels Welcome</span>
-              </div>
-            </div>
+            
           </div>
         </div>
       </section>
