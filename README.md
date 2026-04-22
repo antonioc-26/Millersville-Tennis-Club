@@ -15,7 +15,7 @@ This project is the official website for the Millersville Club Tennis organizati
 
 The application emphasizes usability, scalability, and maintainability, ensuring that the club can continue to grow and update the site over time with minimal friction.
 
----
+--- 
 
 ## 🌐 Live Demo
 
