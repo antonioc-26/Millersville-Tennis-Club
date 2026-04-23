@@ -110,11 +110,15 @@ export default function Header() {
           </button>
 
           <div className="header-contact-block">
-            <p className="header-info-text header-info-line">
+            <p className="header-info-text desktop-contact-line">
               {SITE_CONFIG.address}
+              <span className="divider">|</span>
+              <a href={`mailto:${SITE_CONFIG.email}`} className="header-email">
+                {SITE_CONFIG.email}
+              </a>
             </p>
 
-            <p className="header-info-text header-info-line">
+            <p className="header-info-text mobile-email-line">
               <a href={`mailto:${SITE_CONFIG.email}`} className="header-email">
                 {SITE_CONFIG.email}
               </a>

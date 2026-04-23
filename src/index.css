@@ -248,6 +248,15 @@ a {
   font-weight: 500;
 }
 
+/* Desktop vs Mobile contact visibility control */
+.desktop-contact-line {
+  display: block;
+}
+
+.mobile-email-line {
+  display: none;
+}
+
 
 /* =============================================================================
    UNIVERSAL FOOTER STYLING
@@ -404,13 +413,18 @@ a {
   }
 
   .mobile-nav-toggle span {
-    width: 24px;
+    width: 22px;
     height: 3px;
     margin: 4px 0;
   }
 
   .header-bottom-info {
     padding: 0px 14px 5px;
+  }
+
+  .header-email {
+    color: var(--millersville-black);
+    text-decoration: none;
   }
 
   .header-bottom-mobile-shell {
@@ -465,6 +479,15 @@ a {
     display: block;
     padding: 10px 0;
     font-size: 1rem;
+  }
+
+  .desktop-contact-line {
+    display: none;
+  }
+
+  .mobile-email-line {
+    display: block;
+    text-align: center;
   }
 }
 
@@ -1119,7 +1142,7 @@ a {
 
 @media (max-width: 768px) {
   .club-name {
-    font-size: 1.3rem;
+    font-size: 1.35rem;
     line-height: 1.1;
     padding: 0 12px;
     max-width: 300px;
