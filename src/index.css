@@ -147,7 +147,7 @@ a {
   background-color: var(--millersville-white);
   color: var(--millersville-black);
   text-align: center;
-  padding: 14px 0 10px;
+  padding: 10px 0 6px;
 }
 
 .club-name {
@@ -398,24 +398,36 @@ a {
 
   .mobile-nav-toggle {
     display: block;
-    align-self: flex-start;
-    margin-top: 2px;
+    align-self: center;
+    margin-top: 0;
+    padding: 4px;
+  }
+
+  .mobile-nav-toggle span {
+    width: 24px;
+    height: 3px;
+    margin: 4px 0;
   }
 
   .header-bottom-info {
-    padding: 10px 14px 8px;
+    padding: 0px 14px 5px;
   }
 
   .header-bottom-mobile-shell {
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 14px;
+    display: grid;
+    grid-template-columns: 32px 1fr 32px;
+    align-items: center;
+    gap: 10px;
   }
 
   .header-contact-block {
+    grid-column: 2;
     text-align: center;
-    flex: 1;
     min-width: 0;
+  }
+
+  .header-contact-block .header-info-line:first-child {
+    display: none;
   }
 
   .header-info-text {
@@ -425,13 +437,13 @@ a {
   }
 
   .header-info-line + .header-info-line {
-    margin-top: 6px;
+    margin-top: 0;
   }
 
   .mobile-nav {
     display: none;
     margin-top: 12px;
-    padding-left: 46px;
+    padding-left: 42px;
   }
 
   .mobile-nav.open {
@@ -580,7 +592,7 @@ a {
 
 .about h2 {
   margin-top: 0;
-  font-size: 2.5rem;
+  font-size: 2rem;
 }
 
 .about p {
@@ -973,6 +985,10 @@ a {
   font-size: 1.1rem;
 }
 
+.cta h2 {
+  margin: 0 0 25px;
+}
+
 
 /* =============================================================================
    STANDARD INNER PAGE PLACEHOLDERS
@@ -1103,10 +1119,10 @@ a {
 
 @media (max-width: 768px) {
   .club-name {
-    font-size: 2rem;
-    line-height: 1.15;
+    font-size: 1.3rem;
+    line-height: 1.1;
     padding: 0 12px;
-    max-width: 260px;
+    max-width: 300px;
     margin: 0 auto;
   }
 
@@ -1160,6 +1176,7 @@ a {
     padding: 0 14px;
     line-height: 1.6;
   }
+
 }
 
 @media (max-width: 480px) {
