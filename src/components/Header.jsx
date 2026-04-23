@@ -57,8 +57,46 @@ export default function Header() {
       </div>
 
       {/* Middle layer: primary site navigation for the main routed pages */}
-      <div className="header-middle">
-        <div className="nav-shell">
+      <div className="header-middle desktop-nav-row">
+        <nav className="site-nav desktop-nav">
+          <ul className="nav-links">
+            <li>
+              <NavLink to="/" onClick={closeMenu}>
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/schedule" onClick={closeMenu}>
+                Schedule
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/join" onClick={closeMenu}>
+                Join
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/faq" onClick={closeMenu}>
+                FAQ
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/officer-board" onClick={closeMenu}>
+                Officer Board
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/contact" onClick={closeMenu}>
+                Contact
+              </NavLink>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      {/* Bottom layer: club contact details pulled from centralized site config */}
+      <div className="header-bottom-info">
+        <div className="header-bottom-mobile-shell">
           <button
             className="mobile-nav-toggle"
             type="button"
@@ -71,52 +109,57 @@ export default function Header() {
             <span></span>
           </button>
 
-          <nav className={`site-nav ${menuOpen ? "open" : ""}`}>
-            <ul className="nav-links">
-              <li>
-                <NavLink to="/" onClick={closeMenu}>
-                  Home
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/schedule" onClick={closeMenu}>
-                  Schedule
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/join" onClick={closeMenu}>
-                  Join
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/faq" onClick={closeMenu}>
-                  FAQ
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/officer-board" onClick={closeMenu}>
-                  Officer Board
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/contact" onClick={closeMenu}>
-                  Contact
-                </NavLink>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </div>
+          <div className="header-contact-block">
+            <p className="header-info-text desktop-contact-line">
+              {SITE_CONFIG.address}
+              <span className="divider">|</span>
+              <a href={`mailto:${SITE_CONFIG.email}`} className="header-email">
+                {SITE_CONFIG.email}
+              </a>
+            </p>
 
-      {/* Bottom layer: club contact details pulled from centralized site config */}
-      <div className="header-bottom-info">
-        <p className="header-info-text">
-          {SITE_CONFIG.address}
-          <span className="divider">|</span>
-          <a href={`mailto:${SITE_CONFIG.email}`} className="header-email">
-            {SITE_CONFIG.email}
-          </a>
-        </p>
+            <p className="header-info-text mobile-email-line">
+              <a href={`mailto:${SITE_CONFIG.email}`} className="header-email">
+                {SITE_CONFIG.email}
+              </a>
+            </p>
+          </div>
+        </div>
+
+        <nav className={`site-nav mobile-nav ${menuOpen ? "open" : ""}`}>
+          <ul className="nav-links">
+            <li>
+              <NavLink to="/" onClick={closeMenu}>
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/schedule" onClick={closeMenu}>
+                Schedule
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/join" onClick={closeMenu}>
+                Join
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/faq" onClick={closeMenu}>
+                FAQ
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/officer-board" onClick={closeMenu}>
+                Officer Board
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/contact" onClick={closeMenu}>
+                Contact
+              </NavLink>
+            </li>
+          </ul>
+        </nav>
       </div>
     </header>
   );
