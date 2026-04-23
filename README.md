@@ -29,6 +29,9 @@ https://millersville-tennis-club.vercel.app
 ![Homepage](./docs/screenshots/homepage.jpg)
 
 ### Mobile View
+![Mobile](./docs/screenshots/mobile.png)
+
+### Courts View
 ![Mobile](./docs/screenshots/courts.jpg)
 
 ### Officers Section

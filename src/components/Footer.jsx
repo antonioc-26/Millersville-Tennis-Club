@@ -49,15 +49,26 @@ export default function Footer() {
         <h2 className="footer-title">Connect With Us</h2>
 
         {/* Section: Contact information pulled from centralized config */}
-        <p className="footer-contact-text">
-          {SITE_CONFIG.address}
-          <span className="divider">|</span>
+        <div className="footer-contact-text">
+          {/* Desktop version */}
+          <p className="footer-contact-desktop">
+            {SITE_CONFIG.address}
+            <span className="divider">|</span>
+            <a href={`mailto:${SITE_CONFIG.email}`} className="footer-email">
+              {SITE_CONFIG.email}
+            </a>
+          </p>
 
-          {/* Clickable email link using mailto */}
-          <a href={`mailto:${SITE_CONFIG.email}`} className="footer-email">
-            {SITE_CONFIG.email}
-          </a>
-        </p>
+          {/* Mobile version */}
+          <div className="footer-contact-mobile">
+            <p>{SITE_CONFIG.address}</p>
+            <p>
+              <a href={`mailto:${SITE_CONFIG.email}`} className="footer-email">
+                {SITE_CONFIG.email}
+              </a>
+            </p>
+          </div>
+        </div>
 
         {/* Section: Social media links */}
         <div className="social-buttons">
