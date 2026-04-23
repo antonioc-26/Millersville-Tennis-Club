@@ -203,10 +203,14 @@ a {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.nav-links a:hover,
-.nav-links a.active {
+.nav-links a:hover {
   background-color: transparent;
   color: var(--millersville-gold);
+}
+
+.nav-links a.active {
+  background-color: transparent;
+  /* color: var(--millersville-black); */
 }
 
 .header-bottom-info {
@@ -328,6 +332,15 @@ a {
   color: var(--millersville-gold);
   text-decoration: underline;
   font-weight: 500;
+}
+
+/* Footer contact layout control */
+.footer-contact-desktop {
+  display: block;
+}
+
+.footer-contact-mobile {
+  display: none;
 }
 
 .footer-bottom {
@@ -488,6 +501,11 @@ a {
   .mobile-email-line {
     display: block;
     text-align: center;
+  }
+
+  .nav-links a.active {
+    background-color: transparent;
+    color: var(--millersville-gold); 
   }
 }
 
@@ -1198,6 +1216,19 @@ a {
   .footer-contact-text {
     padding: 0 14px;
     line-height: 1.6;
+  }
+
+  .footer-contact-desktop {
+    display: none;
+  }
+
+  .footer-contact-mobile {
+    display: block;
+    text-align: center;
+  }
+
+  .footer-contact-mobile p {
+    margin: 4px 0;
   }
 
 }
