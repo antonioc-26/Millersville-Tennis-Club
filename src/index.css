@@ -19,11 +19,14 @@
    Notes:
        - Image paths assume assets are located in /public/assets/images
        - This stylesheet is imported through src/main.jsx
+       - Existing values, selector order, and behavior have been preserved
+         as provided during cleanup/commenting
    ============================================================================= */
 
 
 /* =============================================================================
    COLOR VARIABLES
+   Stores reusable project color values and shared effect variables.
    ============================================================================= */
 
 :root {
@@ -45,6 +48,8 @@
 
 /* =============================================================================
    GLOBAL RESET / BASE
+   Establishes the box model, removes default spacing, and applies global
+   element-level defaults.
    ============================================================================= */
 
 * {
@@ -72,6 +77,12 @@ img {
 a {
   color: inherit;
 }
+
+
+/* =============================================================================
+   SHARED SECTION / TYPOGRAPHY HELPERS
+   Provides reusable spacing and typography helpers across multiple sections.
+   ============================================================================= */
 
 .section-shell {
   padding-left: 20px;
@@ -115,6 +126,8 @@ a {
 
 /* =============================================================================
    UNIVERSAL HEADER STYLING
+   Styles the shared site header, including branding, desktop navigation,
+   mobile contact layout, and contact information.
    ============================================================================= */
 
 .site-header {
@@ -134,7 +147,7 @@ a {
   background-color: var(--millersville-white);
   color: var(--millersville-black);
   text-align: center;
-  padding: 14px 0;
+  padding: 14px 0 10px;
 }
 
 .club-name {
@@ -156,6 +169,14 @@ a {
 .header-middle {
   width: 100%;
   background-color: var(--millersville-white);
+}
+
+.desktop-nav-row {
+  display: block;
+}
+
+.desktop-nav {
+  display: block;
 }
 
 .nav-links {
@@ -182,7 +203,8 @@ a {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a.active {
   background-color: transparent;
   color: var(--millersville-gold);
 }
@@ -190,14 +212,28 @@ a {
 .header-bottom-info {
   width: 100%;
   background-color: var(--millersville-white);
-  text-align: center;
   padding: 8px 0;
+}
+
+.header-bottom-mobile-shell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+}
+
+.header-contact-block {
+  text-align: center;
 }
 
 .header-info-text {
   margin: 0;
   font-size: 0.9rem;
   color: var(--millersville-gold);
+}
+
+.header-info-line + .header-info-line {
+  margin-top: 4px;
 }
 
 .divider {
@@ -215,6 +251,8 @@ a {
 
 /* =============================================================================
    UNIVERSAL FOOTER STYLING
+   Styles the shared site footer, including social buttons, contact text,
+   and branding link.
    ============================================================================= */
 
 .site-footer {
@@ -222,7 +260,7 @@ a {
   color: var(--millersville-black);
   text-align: center;
   padding: 30px 20px 20px;
-  margin-top: 40px;
+  margin-top: 0px;
   box-shadow: 0 -6px 16px rgba(0, 0, 0, 0.25);
 }
 
@@ -314,9 +352,7 @@ a {
 
 /* =============================================================================
    UNIVERSAL NAVIGATION STYLING
-     - Base styles for the site navigation, including mobile responsiveness.
-      - The .nav-shell class can be used to wrap the navigation in any section
-        to provide consistent spacing and positioning.
+   Base styles for shared desktop and mobile navigation controls.
    ============================================================================= */
 
 .nav-shell {
@@ -325,16 +361,16 @@ a {
 
 .mobile-nav-toggle {
   display: none;
-  margin: 0 auto;
   background: none;
   border: none;
   cursor: pointer;
   padding: 8px;
+  flex-shrink: 0;
 }
 
 .mobile-nav-toggle span {
   display: block;
-  width: 26px;
+  width: 28px;
   height: 3px;
   margin: 5px 0;
   background-color: var(--millersville-black);
@@ -345,54 +381,85 @@ a {
   display: block;
 }
 
+.mobile-nav {
+  display: none;
+}
+
+
+/* =============================================================================
+   UNIVERSAL NAVIGATION - MOBILE STATE
+   Mobile-specific navigation layout rules for the shared header.
+   ============================================================================= */
 
 @media (max-width: 768px) {
+  .desktop-nav-row {
+    display: none;
+  }
+
   .mobile-nav-toggle {
     display: block;
+    align-self: flex-start;
+    margin-top: 2px;
   }
 
-  .site-nav {
+  .header-bottom-info {
+    padding: 10px 14px 8px;
+  }
+
+  .header-bottom-mobile-shell {
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .header-contact-block {
+    text-align: center;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .header-info-text {
+    font-size: 0.95rem;
+    line-height: 1.45;
+    word-break: break-word;
+  }
+
+  .header-info-line + .header-info-line {
+    margin-top: 6px;
+  }
+
+  .mobile-nav {
     display: none;
-    margin-top: 10px;
+    margin-top: 12px;
+    padding-left: 46px;
   }
 
-  .site-nav.open {
+  .mobile-nav.open {
     display: block;
   }
 
-  .nav-links {
+  .mobile-nav .nav-links {
     flex-direction: column;
+    align-items: flex-start;
     gap: 4px;
-    padding: 10px 0 4px;
+    padding: 4px 0 0;
   }
 
-  .nav-links li {
+  .mobile-nav .nav-links li {
     margin: 0;
   }
 
-  .nav-links a {
+  .mobile-nav .nav-links a {
     display: block;
     padding: 10px 0;
     font-size: 1rem;
-  }
-
-  .highlights-container {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-stats {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .hero-stat {
-    width: min(280px, 100%);
   }
 }
 
 
 /* =============================================================================
    HOME PAGE - HERO SECTION
+   Styles the homepage hero banner, overlay, text, buttons, and stats.
    ============================================================================= */
 
 .hero {
@@ -501,6 +568,7 @@ a {
 
 /* =============================================================================
    HOME PAGE - ABOUT SECTION
+   Styles the homepage club description / introduction section.
    ============================================================================= */
 
 .about {
@@ -523,6 +591,7 @@ a {
 
 /* =============================================================================
    HOME PAGE - HIGHLIGHTS SECTION
+   Styles the section heading, card layout, and highlight card presentation.
    ============================================================================= */
 
 .highlights {
@@ -586,9 +655,9 @@ a {
 }
 
 
-
 /* =============================================================================
    HOME PAGE - SLIDESHOW SECTION
+   Styles the slideshow wrapper, slide images, and manual controls.
    ============================================================================= */
 
 .slideshow-section {
@@ -661,6 +730,7 @@ a {
 
 /* =============================================================================
    HOME PAGE - COURTS SECTION
+   Styles the court cards, grid layout, links, and CTA button wrapper.
    ============================================================================= */
 
 .courts-section {
@@ -748,6 +818,7 @@ a {
 
 /* =============================================================================
    HOME PAGE - FAQ PREVIEW SECTION
+   Styles the FAQ preview layout, question spacing, and body copy.
    ============================================================================= */
 
 .faq-preview-section {
@@ -786,6 +857,7 @@ a {
 
 /* =============================================================================
    HOME PAGE - OFFICERS SECTION
+   Styles the officer showcase cards, avatar treatments, and action links.
    ============================================================================= */
 
 .officers-section {
@@ -846,7 +918,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #26b8f2, #1d8fca);
+  background: linear-gradient(135deg, #e0b84f, #c99700);
   color: var(--millersville-white);
   font-size: 1.8rem;
   font-weight: 700;
@@ -888,6 +960,7 @@ a {
 
 /* =============================================================================
    HOME PAGE - CTA SECTION
+   Styles the homepage closing call-to-action block.
    ============================================================================= */
 
 .cta {
@@ -903,6 +976,8 @@ a {
 
 /* =============================================================================
    STANDARD INNER PAGE PLACEHOLDERS
+   Provides the shared layout shell for inner pages using the standard-page
+   structure.
    ============================================================================= */
 
 .standard-page {
@@ -948,87 +1023,12 @@ a {
 
 
 /* =============================================================================
-   RESPONSIVE ADJUSTMENTS
-   ============================================================================= */
-
-@media (max-width: 1100px) {
-  .courts-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .club-name {
-    font-size: 2rem;
-  }
-
-  .nav-links li {
-    margin: 6px 10px;
-  }
-
-  .hero-title {
-    font-size: 2.25rem;
-  }
-
-  .hero-subtitle,
-  .about p,
-  .faq-answer,
-  .court-description,
-  .officers-subtitle,
-  .page-subtitle {
-    font-size: 1rem;
-  }
-
-  .section-title,
-  .slideshow-title,
-  .highlights-title,
-  .page-title {
-    font-size: 2rem;
-  }
-
-  .courts-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .slide img {
-    height: 320px;
-  }
-
-  .officers-actions {
-    gap: 24px;
-  }
-
-  .header-info-text,
-  .footer-contact-text {
-    padding: 0 14px;
-    line-height: 1.6;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-buttons,
-  .social-buttons {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .slide-btn {
-    padding: 10px 12px;
-    font-size: 1.2rem;
-  }
-
-  .page-content {
-    padding: 24px;
-  }
-}
-
-/* =============================================================================
    SHARED INNER PAGE CONTENT STYLES
-   - These styles can be applied to any inner page that uses the .standard-page
-     layout, providing consistent typography and spacing for headings, paragraphs,
-     and lists within the page content area.
-    - The .page-content-rich class can be added to the content container to enable
-      additional styling for rich text elements like headings and lists.
+   These styles can be applied to any inner page that uses the .standard-page
+   layout, providing consistent typography and spacing for headings,
+   paragraphs, and lists within the page content area.
+   The .page-content-rich class can be added to the content container to enable
+   additional styling for rich text elements like headings and lists.
    ============================================================================= */
 
 .page-content-rich h2 {
@@ -1086,4 +1086,95 @@ a {
 .board-card-role {
   margin: 0;
   color: var(--millersville-dark-gray);
+}
+
+
+/* =============================================================================
+   RESPONSIVE ADJUSTMENTS
+   Preserves the current responsive behavior for layout, typography, and
+   spacing across breakpoints.
+   ============================================================================= */
+
+@media (max-width: 1100px) {
+  .courts-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .club-name {
+    font-size: 2rem;
+    line-height: 1.15;
+    padding: 0 12px;
+    max-width: 260px;
+    margin: 0 auto;
+  }
+
+  .highlights-container {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-stats {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-stat {
+    width: min(280px, 100%);
+  }
+
+  .hero-title {
+    font-size: 2.25rem;
+  }
+
+  .hero-subtitle,
+  .about p,
+  .faq-answer,
+  .court-description,
+  .officers-subtitle,
+  .page-subtitle {
+    font-size: 1rem;
+  }
+
+  .section-title,
+  .slideshow-title,
+  .highlights-title,
+  .page-title {
+    font-size: 2rem;
+  }
+
+  .courts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .slide img {
+    height: 320px;
+  }
+
+  .officers-actions {
+    gap: 24px;
+  }
+
+  .header-info-text,
+  .footer-contact-text {
+    padding: 0 14px;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-buttons,
+  .social-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .slide-btn {
+    padding: 10px 12px;
+    font-size: 1.2rem;
+  }
+
+  .page-content {
+    padding: 24px;
+  }
 }
